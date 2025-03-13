@@ -5,10 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GCP Newsletter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <style>
         /* Global Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Nunito", sans-serif;
             margin: 0;
             padding: 0;
             color: #333;
@@ -39,20 +42,22 @@
         }
 
         .logo {
-            width: 32px;
-            height: 32px;
-            margin-right: 10px;
+            height: auto;
+            /* margin-left: 5px; */
         }
 
         .newsletter-title {
-            font-size: 18px;
+            font-size: 26px;
             font-weight: bold;
-            color: #202124;
+            color: white;
+            font-family: "Nunito", sans-serif;
+            font-style: normal;
+            margin-right: 40px;
         }
 
         .issue-info {
             font-size: 14px;
-            color: #5f6368;
+            color: white;
             text-align: right;
         }
 
@@ -71,22 +76,22 @@
 
         /* Leadership Message */
         .leadership-message {
-            background-color: #f8f9fa;
-            padding: 20px;
+            background-color: #f8f9fb;
+            padding: 15px;
             margin-bottom: 20px;
         }
 
         .leader-info {
             display: flex;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
         .leader-avatar {
-            width: 50px;
-            height: 50px;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
-            margin-right: 15px;
+            margin-right: 10px;
         }
 
         .leader-name {
@@ -95,8 +100,9 @@
 
         .leader-quote {
             font-style: italic;
-            margin-left: 65px;
+            margin-left: 42px;
             color: #5f6368;
+            font-size: small;
         }
 
         /* Feature Updates */
@@ -110,6 +116,7 @@
             border: 1px solid #eaeaea;
             border-radius: 8px;
             padding: 15px;
+            position: relative;
         }
 
         .update-icon {
@@ -145,7 +152,7 @@
             text-decoration: none;
             font-size: 14px;
             display: flex;
-            align-items: center;
+            /* align-items: center; */
         }
 
         .learn-more:after {
@@ -258,7 +265,7 @@
             color: white;
             padding: 15px;
             border-radius: 8px;
-            font-family: monospace;
+            font-family: "Nunito", sans-serif;
             margin-bottom: 20px;
         }
 
@@ -534,12 +541,13 @@
 
         .social-icons {
             display: flex;
+            position: relative;
         }
 
         .social-icon {
             width: 24px;
             height: 24px;
-            margin-left: 10px;
+            /* margin-left: 15px; */
             color: #5f6368;
         }
 
@@ -548,8 +556,17 @@
             color: #5f6368;
             text-align: center;
             padding: 10px;
-            background-color: #202124;
+            background: linear-gradient(135deg, rgb(251, 164, 157),rgb(0, 0, 134));
             color: white;
+        }
+
+        .anchor {
+            display: inline-block;
+        }
+
+        .social-media-icons{
+            margin-right: 8px;
+            margin-left: 8px;
         }
 
         /* Responsive Styles */
@@ -571,14 +588,9 @@
         <!-- Header -->
         <div class="header">
             <div class="header-logo">
-                <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path fill="#4285F4" d="M12 11v2h2v-2h-2zm-2 2h2v-2h-2v2zm4-2v2h2v-2h-2zm-6 0v2h2v-2H8z" />
-                    <path fill="#34A853" d="M12 7h2V5h-2v2zm-2-2v2h2V5h-2zm-2 0v2h2V5H8zm8 2V5h-2v2h2z" />
-                    <path fill="#FBBC05" d="M8 15h2v-2H8v2zm6-2v2h2v-2h-2z" />
-                    <path fill="#EA4335" d="M10 17h4v-2h-4v2z" />
-                </svg>
-                <div class="newsletter-title">GCP Newsletter</div>
+                <img class="logo" src="https://www.bluealtair.com/hubfs/Logo-ColorStar-WhiteText.svg" width="150">
             </div>
+            <div class="newsletter-title">GCP Newsletter</div>
             <div class="issue-info">
                 Issue #42<br>
                 February 2024
@@ -822,7 +834,7 @@
 
                         Your insights could help us enhance performance, security, and scalability. Whether it's
                         automation, optimization, or a fresh new approach, we value your input. </div>
-                    <button class="ideas-button">Share Your Ideas 🚀</button>
+                    <button class="ideas-button">Share Your Ideas</button>
                 </div>
             </div>
         </div>
@@ -860,10 +872,10 @@
             <div class="social-section">
                 <div class="social-title">Stay Connected</div>
                 <div class="social-icons">
-                    <div class="social-icon">📱</div>
-                    <div class="social-icon">🐦</div>
-                    <div class="social-icon">👍</div>
-                    <div class="social-icon">✉️</div>
+                    <div class="social-media-icons"><a class="anchor" href="https://www.linkedin.com/company/blue-altair"><img src="data:image/png;base64,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" class="social-icon"></a></div>
+                    <div class="social-media-icons"><a class="anchor" href="https://x.com/bluealtair1"><img src="data:image/png;base64,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" class="social-icon"></a></div>
+                    <div class="social-media-icons"><a class="anchor" href="https://www.facebook.com/bluealtair1/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAZlBMVEUAAAD////l5eXY2Ni6urqjo6OPj4+Tk5Px8fH8/Py/v7/t7e0FBQWfn59hYWGJiYnd3d3IyMiCgoLQ0NBvb285OTlQUFBeXl4fHx9JSUktLS1CQkLo6OgMDAyxsbF9fX0WFhYqKipjbdU6AAAC7UlEQVR4nO3c21LiQBRG4eYQSXMUAqIOI/r+L2mwxqsp0yFde/bfmbVuvKKqv+rAJgcMgYiIiIiIiIiIiIiIiIiIiIiIiOi/b73++vO83VXL2eN0VbetLpfpdNbsl/Nq83DYvryunReZ26/Fvp50Fy+PzdZ7nQPbzlcJ3XcP3ksd1Ca1eWULT/Pb8RfHKWw/On6/9d++AoUhXNu96719pQnbAfHe3LmBhQnD+b7dK04YrvceoKUJNwM2sChhdceEKFK4GLaDpQjX4TjkLViQMJyG7mAZwvabzGXswnu/qZUmDE8ZwDKE07ELdznAIoT10EFRivBh8CgsRdj3gkyxwmMesADhfvTCvHdhAcLDyIXrMODKTFHCEDJ3UF94zgXKC6v+lHo2rxZ/9+RNSNT3bdhcT95LHVifWzBxsnz1XufgPvrsXzx+XQcos/S5b4zxxXuVOaVPDePk6r3IrHp8lDbf9/TLbJ4WFn2M9jmxmHovMbNZUlh5LzGz9FW2s/cSM0sJ4+TDe4mZJfew9l5hbknhynuFuSWFM+8V5pYUNt4rzI09RKgfQoT6IUSoH0KE+iFEqB9ChPohRCjRcTn/ueRN7vqt49VtS29eyPghRa+iNy/cHh+1TOEothUqHKW2QoXbi7bCnTcvWAsVfo1vK3z25gVrobfulqlQ4gaqqVBhHNoKFcahrVBhHNoKD966W6ZCieeJTIUSj0ZbCuO7t+6WpVBiHJoKJcahqVBiHJoKK4ln+C2FEuPQUBg1xqHpHkqMQ0uhwqXEYCoUeYDYUKgxDi2FGuPQUihxdmgq1BiHlkKNcWgpFPllqeHdNW/an87Vz6X/E+tq0/Fqie/diTLvcmsIO1eRJ9QAdjeKJxU6Q4hQP4QI9UOIUD+ECPVDiFA/hAj1Q4hQP4QI9UOIUD+ECPVDiFA/hAj1Q4hQP4QI9UOIUD+ECPVDiFA/hAj1Q4hQP4QI9UOIUD+ECPVDiFA/hAj1Q4hQP4T/QvgJRx8wnOUQi9gAAAAASUVORK5CYII=" class="social-icon"></a></div>
+                    <div class="social-media-icons"><a class="anchor" href="https://www.instagram.com/bluealtair1/#"><img src="data:image/png;base64,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" class="social-icon"></a></div>
                 </div>
             </div>
         </div>
