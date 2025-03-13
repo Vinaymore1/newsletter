@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GCP Newsletter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <style>
         /* Global Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Nunito", sans-serif;
             margin: 0;
             padding: 0;
             color: #333;
@@ -38,15 +41,17 @@
         }
         
         .logo {
-            width: 32px;
-            height: 32px;
-            margin-right: 10px;
+            height: auto;
+            /* margin-right: 10px; */
         }
         
         .newsletter-title {
-            font-size: 18px;
+            font-size: 26px;
             font-weight: bold;
-            color: #202124;
+            color: white;
+            font-family: "Nunito", sans-serif;
+            font-style: normal;
+            /* align-items: center; */
         }
         
         .issue-info {
@@ -70,7 +75,7 @@
         
         /* Leadership Message */
         .leadership-message {
-            background-color: #f8f9fa;
+            background-color: #f8f9fb;
             padding: 20px;
             margin-bottom: 20px;
         }
@@ -257,7 +262,7 @@
             color: white;
             padding: 15px;
             border-radius: 8px;
-            font-family: monospace;
+            font-family: "Nunito", sans-serif;
             margin-bottom: 20px;
         }
         
@@ -544,14 +549,9 @@
         <!-- Header -->
         <div class="header">
             <div class="header-logo">
-                <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path fill="#4285F4" d="M12 11v2h2v-2h-2zm-2 2h2v-2h-2v2zm4-2v2h2v-2h-2zm-6 0v2h2v-2H8z"/>
-                    <path fill="#34A853" d="M12 7h2V5h-2v2zm-2-2v2h2V5h-2zm-2 0v2h2V5H8zm8 2V5h-2v2h2z"/>
-                    <path fill="#FBBC05" d="M8 15h2v-2H8v2zm6-2v2h2v-2h-2z"/>
-                    <path fill="#EA4335" d="M10 17h4v-2h-4v2z"/>
-                </svg>
-                <div class="newsletter-title">GCP Newsletter</div>
+                <img class="logo" src="https://www.bluealtair.com/hubfs/Logo-ColorStar-WhiteText.svg" width="150">
             </div>
+            <div class="newsletter-title">GCP Newsletter</div>
             <div class="issue-info">
                 Issue #42<br>
                 February 2024
