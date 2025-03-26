@@ -20,7 +20,7 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
             background-color: white;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -108,7 +108,7 @@
         /* Feature Updates */
         .updates-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px;
         }
 
@@ -163,7 +163,7 @@
         /* Initiatives */
         .initiatives-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px;
         }
 
@@ -171,13 +171,20 @@
             border: 1px solid #eaeaea;
             border-radius: 8px;
             overflow: hidden;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .initiative-card.expanded {
+            grid-column: 1 / -1;
         }
 
         .initiative-image {
-            width: 100%;
+            width: 272px;
             height: 120px;
             background-color: #e8eaed;
             object-fit: cover;
+            border-radius: 4%;
         }
 
         .initiative-content {
@@ -192,6 +199,38 @@
         .initiative-description {
             font-size: 14px;
             color: #5f6368;
+        }
+
+        .initiative-content .learn-more {
+            color: #007bff;
+            cursor: pointer;
+            margin-top: 15px;
+            display: inline-block;
+        }
+
+        .initiative-content .expanded-content {
+            display: none;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .initiative-card.expanded .expanded-content {
+            display: block;
+        }
+
+        .initiative-content .close-btn {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            cursor: pointer;
+            color: #666;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .initiative-content .close-btn:hover {
+            background: #f0f0f0;
         }
 
         /* Security Updates */
@@ -223,7 +262,7 @@
             margin-bottom: 10px;
         }
 
-        .alert-button {
+        .alert-button-view {
             background-color: #ea4335;
             color: white;
             border: none;
@@ -231,6 +270,7 @@
             border-radius: 4px;
             cursor: pointer;
             font-size: 14px;
+            display: block;
         }
 
         /* Technical Insights */
@@ -272,7 +312,7 @@
         /* Learning & Events */
         .events-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
 
@@ -580,37 +620,137 @@
                 grid-template-columns: 1fr;
             }
         }
-        .expanded-content {
-            display: none;
-            margin-top: 10px;
-            padding: 40px;
-            border: 1px solid #ccc;
-            background: #f9f9f9;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 150%;
-            height: 150%;
-            z-index: 100;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            overflow-y: auto;
-            font-size: 16px;
-        }
-        .expanded-content h2 {
-            font-size: 26px;
-        }
-        .expanded-content p {
-            font-size: 18px;
-        }
-        .close-btn {
-            display: block;
-            margin-bottom: 10px;
-            color: #4285f4;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 18px;
-        }
-    </style>
+        .section {
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .section-title {
+        font-size: 24px;
+        margin-bottom: 30px;
+        color: #333;
+    }
+
+    .updates-grid {
+        display: grid;
+        /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+        gap: 20px;
+    }
+
+    .update-card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .update-card.expanded {
+        grid-column: 1 / -1;
+    }
+
+    .update-icon {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    .update-title {
+        font-weight: bold;
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+
+    .learn-more {
+        color: #007bff;
+        cursor: pointer;
+        margin-top: 15px;
+        display: inline-block;
+    }
+
+    .expanded-content {
+        display: none;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+    }
+
+    .update-card.expanded .expanded-content {
+        display: block;
+    }
+
+    .close-btn {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        cursor: pointer;
+        color: #666;
+        padding: 5px 10px;
+        border-radius: 4px;
+    }
+
+    .close-btn:hover {
+        background: #f0f0f0;
+    }
+
+    /* .security-alert {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        position: relative;
+        transition: all 0.3s ease;
+        display: flex;
+        gap: 15px;
+        align-items: flex-start;
+    } */
+
+    .security-alert.expanded {
+        grid-column: 1 / -1;
+        flex-direction: column;
+    }
+
+    /* .alert-icon {
+        font-size: 24px;
+        margin-right: 15px;
+    } */
+
+    .alert-content {
+        flex-grow: 1;
+    }
+
+    .alert-title {
+        font-weight: bold;
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+
+    /* .alert-button {
+        background: #007bff;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 10px;
+    } */
+
+    /* Update existing styles to include security alerts */
+    .expanded-content {
+        display: none;
+        width: 100%;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+    }
+
+    .security-alert.expanded .expanded-content {
+        display: block;
+    }
+
+    .extend{
+        cursor: pointer;
+    }
+
+    </style>    
 </head>
 
 <body>
@@ -618,7 +758,7 @@
         <!-- Header -->
         <div class="header">
             <div class="header-logo">
-                <img class="logo" src="https://www.bluealtair.com/hubfs/Logo-ColorStar-WhiteText.svg" width="150">
+                <a href="https://www.bluealtair.com"><img class="logo" src="https://www.bluealtair.com/hubfs/Logo-ColorStar-WhiteText.svg" width="150"></a>
             </div>
             <div class="newsletter-title">GCP Newsletter</div>
             <div class="issue-info">
@@ -651,50 +791,49 @@
         <div class="section">
             <div class="section-title">Featured Updates & Announcements</div>
             <div class="updates-grid">
-                <div class="update-card">
+                <div class="update-card expandable">
                     <div class="update-icon"><span>1</span></div>
                     <div class="update-title">New Feature Release: Cloud Run for Anthos</div>
-                    <div class="update-description">Introducing advanced capabilities for containerized applications
-                        with enhanced scalability and improved deployment workflows.</div>
-                    <div class="learn-more" onclick="toggleDetails(this)">Learn more</div>
+                    <div class="update-description">Introducing advanced capabilities for containerized applications.</div>
+                    <div class="learn-more extend" onclick="toggleDetails(this)">Learn more</div>
                     <div class="expanded-content">
-                        <div class="close-btn" onclick="closeDetails(this)">Close</div>
+                        <div class="close-btn" onclick="closeDetails()">Close</div>
                         <h2>New Feature Release: Cloud Run for Anthos</h2>
-                        <p>Vertex AI Agent Builder provides enterprise-grade security and governance controls, ensuring that AI agents operate within a secure and compliant framework. It includes robust access management, data encryption, and monitoring capabilities to protect sensitive information and prevent unauthorized usage. Businesses can customize AI models while maintaining strict adherence to regulatory standards, ensuring responsible AI deployment. With built-in audit trails and policy enforcement mechanisms, organizations can track AI interactions, detect anomalies, and mitigate risks effectively. This comprehensive approach makes AI adoption more scalable, accessible, and trustworthy for enterprises looking to integrate intelligent automation into their operations.</p>
+                        <p>BigQuery ML now supports advanced machine learning capabilities, including forecasting models and integration with TensorFlow. These enhancements allow data scientists and analysts to build and deploy predictive models directly within BigQuery, leveraging its scalable infrastructure for faster insights. Businesses can use these capabilities to make data-driven decisions, improve demand forecasting, and enhance AI-driven applications without requiring extensive machine learning expertise. The seamless integration with TensorFlow also enables the use of custom deep learning models, expanding the potential for sophisticated analytics and automation.</p>
                     </div>
                 </div>
-                <div class="update-card">
+        
+                <div class="update-card expandable">
                     <div class="update-icon"><span>2</span></div>
                     <div class="update-title">BigQuery ML Enhancements</div>
-                    <div class="update-description">New machine learning capabilities in BigQuery with support for
-                        forecasting models and integration with TensorFlow.</div>
-                    <div class="learn-more" onclick="toggleDetails(this)">Learn more</div>
+                    <div class="update-description">New machine learning capabilities in BigQuery with TensorFlow integration.</div>
+                    <div class="learn-more extend" onclick="toggleDetails(this)">Learn more</div>
                     <div class="expanded-content">
-                        <div class="close-btn" onclick="closeDetails(this)">Close</div>
+                        <div class="close-btn" onclick="closeDetails()">Close</div>
                         <h2>BigQuery ML Enhancements</h2>
                         <p>BigQuery ML now supports advanced machine learning capabilities, including forecasting models and integration with TensorFlow. These enhancements allow data scientists and analysts to build and deploy predictive models directly within BigQuery, leveraging its scalable infrastructure for faster insights. Businesses can use these capabilities to make data-driven decisions, improve demand forecasting, and enhance AI-driven applications without requiring extensive machine learning expertise. The seamless integration with TensorFlow also enables the use of custom deep learning models, expanding the potential for sophisticated analytics and automation.</p>
                     </div>
                 </div>
-                <div class="update-card">
+        
+                <div class="update-card expandable">
                     <div class="update-icon"><span>3</span></div>
                     <div class="update-title">Cloud Storage Cost Optimization</div>
-                    <div class="update-description">New intelligent tiering options automatically move data to optimal
-                        storage classes based on access patterns.</div>
-                    <div class="learn-more" onclick="toggleDetails(this)">Learn more</div>
+                    <div class="update-description">New intelligent tiering options automatically move data.</div>
+                    <div class="learn-more extend" onclick="toggleDetails(this)">Learn more</div>
                     <div class="expanded-content">
-                        <div class="close-btn" onclick="closeDetails(this)">Close</div>
+                        <div class="close-btn" onclick="closeDetails()">Close</div>
                         <h2>Cloud Storage Cost Optimization</h2>
-                        <p>The new intelligent tiering options in Cloud Storage leverage automated machine learning algorithms to analyze data access patterns and seamlessly transition files to the most cost-efficient storage class. Frequently accessed data remains in high-performance storage, while infrequently used files are moved to lower-cost archival tiers without manual intervention. This dynamic optimization helps organizations reduce storage costs while ensuring quick retrieval when needed. By eliminating the complexities of data lifecycle management, businesses can improve efficiency, enhance scalability, and focus on core operations without worrying about storage overhead.</p>
+                        <p>The new intelligent tiering options in Cloud Storage automatically analyze access patterns and move data to the most cost-effective storage class without impacting performance. This feature helps businesses optimize storage costs by ensuring frequently accessed data remains in high-performance tiers while infrequently used data is transitioned to lower-cost archival storage. By eliminating the need for manual intervention, organizations can focus on their core operations while benefiting from seamless cost savings and enhanced storage efficiency.</p>
                     </div>
                 </div>
-                <div class="update-card">
+        
+                <div class="update-card expandable">
                     <div class="update-icon"><span>4</span></div>
                     <div class="update-title">Vertex AI Agent Builder</div>
-                    <div class="update-description">Build, customize, and deploy AI agents with enterprise-grade
-                        security and governance controls.</div>
-                    <div class="learn-more" onclick="toggleDetails(this)">Learn more</div>
+                    <div class="update-description">Build, customize, and deploy AI agents with enterprise-grade security.</div>
+                    <div class="learn-more extend" onclick="toggleDetails(this)">Learn more</div>
                     <div class="expanded-content">
-                        <div class="close-btn" onclick="closeDetails(this)">Close</div>
+                        <div class="close-btn" onclick="closeDetails()">Close</div>
                         <h2>Vertex AI Agent Builder</h2>
                         <p>Vertex AI Agent Builder provides enterprise-grade security and governance controls, ensuring that AI agents operate within a secure and compliant framework. It includes robust access management, data encryption, and monitoring capabilities to protect sensitive information and prevent unauthorized usage. Businesses can customize AI models while maintaining strict adherence to regulatory standards, ensuring responsible AI deployment. With built-in audit trails and policy enforcement mechanisms, organizations can track AI interactions, detect anomalies, and mitigate risks effectively. This comprehensive approach makes AI adoption more scalable, accessible, and trustworthy for enterprises looking to integrate intelligent automation into their operations.</p>
                     </div>
@@ -706,31 +845,97 @@
         <div class="section">
             <div class="section-title">Blue Altair's GCP Initiatives</div>
             <div class="initiatives-grid">
-                <div class="initiative-card">
+                <div class="initiative-card expandable">
                     <img src="https://s7d1.scene7.com/is/image/viasat/CORP_is1464768280:A-Screen-Small?ts=1739802748183&dpr=off"
                         alt="Project Phoenix" class="initiative-image">
-                    <div class="initiative-content">
+                    <div class="initiative-content" >
+                        <div class="extend" onclick="toggleDetails(this)">
                         <div class="initiative-title">Project Phoenix</div>
                         <div class="initiative-description">Modernizing legacy systems using GCP's cloud-native
                             solutions with a focus on microservices architecture.</div>
+                        </div>
+                        <div class="expanded-content">
+                            <h2>Project Phoenix</h2>
+                            <p>Project Phoenix is an ambitious initiative aimed at modernizing outdated legacy systems by 
+                                leveraging GCP's robust cloud-native solutions. This project focuses on transforming monolithic 
+                                architectures into highly scalable, resilient, and efficient microservices-based solutions. By 
+                                utilizing Kubernetes, serverless functions, and containerized environments, organizations can 
+                                achieve greater flexibility, improve operational efficiency, and reduce overall maintenance costs. 
+                                Additionally, the initiative incorporates DevOps best practices, continuous integration/continuous 
+                                deployment (CI/CD) pipelines, and automated monitoring to ensure seamless system performance. 
+                                Through this transformation, businesses can enhance agility, accelerate innovation, and future-proof 
+                                their IT infrastructure.</p>
+                            <div class="close-btn" onclick="closeDetails()">Close</div>
+                        </div>
                     </div>
                 </div>
-                <div class="initiative-card">
+                <div class="initiative-card expandable">
                     <img src="https://s7d1.scene7.com/is/image/viasat/CORP_is1464768280:A-Screen-Small?ts=1739802748183&dpr=off"
                         alt="Data Insights Platform" class="initiative-image">
                     <div class="initiative-content">
+                        <div class="extend" onclick="toggleDetails(this)">
                         <div class="initiative-title">Data Insights Platform</div>
                         <div class="initiative-description">Building a unified data platform leveraging BigQuery and
                             Looker for real-time analytics and reporting.</div>
+                        </div>
+                            <div class="expanded-content">
+                            <h2>Data Insights Platform</h2>
+                            <p>The Data Insights Platform is a powerful analytics solution built on Google Cloud's BigQuery and 
+                                Looker. This initiative enables enterprises to aggregate, process, and analyze vast amounts of 
+                                structured and unstructured data in real-time, facilitating data-driven decision-making. By 
+                                integrating AI and ML-powered analytics, the platform provides actionable insights, predictive 
+                                modeling, and automated reporting capabilities. Organizations can leverage this solution to enhance 
+                                customer experience, optimize business operations, and uncover hidden trends. With advanced security 
+                                and governance features, businesses can maintain compliance with industry standards while maximizing 
+                                the value of their data assets.</p>
+                            <div class="close-btn" onclick="closeDetails()">Close</div>
+                        </div>
                     </div>
                 </div>
-                <div class="initiative-card">
+                <div class="initiative-card expandable">
                     <img src="https://s7d1.scene7.com/is/image/viasat/CORP_is1464768280:A-Screen-Small?ts=1739802748183&dpr=off"
                         alt="SecureCloud Framework" class="initiative-image">
                     <div class="initiative-content">
+                        <div class="extend" onclick="toggleDetails(this)">
                         <div class="initiative-title">SecureCloud Framework</div>
                         <div class="initiative-description">Implementing comprehensive security measures using Google's
                             security primitives and best practices.</div>
+                        </div>
+                        <div class="expanded-content">
+                            <h2>SecureCloud Framework</h2>
+                            <p>SecureCloud Framework is a cutting-edge initiative focused on enhancing cloud security using 
+                                Google's industry-leading security primitives. This framework is designed to help enterprises 
+                                implement end-to-end security measures, including zero-trust architectures, advanced encryption 
+                                mechanisms, and threat detection systems. By incorporating IAM (Identity and Access Management), 
+                                VPC Service Controls, and security policy enforcement, organizations can protect sensitive data, 
+                                mitigate risks, and ensure compliance with regulatory requirements. SecureCloud Framework also 
+                                integrates AI-driven anomaly detection and automated security incident response, ensuring robust 
+                                protection against evolving cyber threats.</p>
+                            <div class="close-btn" onclick="closeDetails()">Close</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="initiative-card expandable">
+                    <img src="https://s7d1.scene7.com/is/image/viasat/CORP_is1464768280:A-Screen-Small?ts=1739802748183&dpr=off"
+                        alt="SecureCloud Framework" class="initiative-image">
+                    <div class="initiative-content">
+                        <div class="extend" onclick="toggleDetails(this)">
+                        <div class="initiative-title">SecureCloud Framework</div>
+                        <div class="initiative-description">Implementing comprehensive security measures using Google's
+                            security primitives and best practices.</div>
+                        </div>
+                            <div class="expanded-content">
+                            <h2>SecureCloud Framework</h2>
+                            <p>Cloud Automation Suite is a comprehensive framework designed to automate cloud infrastructure 
+                                management, deployment, and scaling operations. This initiative aims to reduce manual intervention, 
+                                optimize resource utilization, and enhance system reliability by leveraging Google Cloud’s 
+                                Infrastructure as Code (IaC) solutions such as Terraform and Deployment Manager. The suite includes 
+                                self-healing mechanisms, auto-scaling policies, and predictive analytics to improve workload 
+                                performance. By automating routine cloud operations, enterprises can increase agility, improve 
+                                cost-efficiency, and free up engineering resources for higher-value initiatives.
+                            </p>
+                            <div class="close-btn" onclick="closeDetails()">Close</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -739,16 +944,34 @@
         <!-- Security Updates Section -->
         <div class="section">
             <div class="section-title">Security Updates</div>
-            <div class="security-alert">
-                <div class="alert-icon">⚠️</div>
-                <div class="alert-content">
-                    <div class="alert-title">Critical Security Advisory</div>
-                    <div class="alert-description">Important updates regarding Cloud Identity and Access Management. All
-                        teams must update IAM policies by March 15th to comply with new security standards.</div>
-                    <button class="alert-button">View Details</button>
+            <!-- <div class="updates-grid"> -->
+                <div class="security-alert expandable">
+                    <!-- <div class="alert-icon">⚠️</div> -->
+                    <div class="alert-content">
+                        <div class="alert-title">Critical Security Advisory</div>
+                        <div class="alert-description">Important updates regarding Cloud Identity and Access Management. All
+                            teams must update IAM policies by March 15th to comply with new security standards.</div>
+                        <button class="alert-button-view" id="view" onclick="toggleSecurityDetails(this)">View Details</button>
+                        <button class="alert-button-view" id="close" onclick="closeSecurityDetails(this)" style="display: none;">Close Details</button>
+                    </div>
+                    <div class="expanded-content">                        
+                        <h2>Critical Security Advisory Details</h2>
+                        <p>All organizations using Cloud IAM must update their policies to include the new resource location 
+                            constraints and session duration limits. These changes are required to meet updated ISO 27001 
+                            compliance standards. Failure to implement these changes by March 15th may result in service 
+                            interruptions. Detailed migration guides and policy templates are available in the Security Hub.</p>
+                        <p>Key changes include:</p>
+                        <ul>
+                            <li>Mandatory multi-factor authentication for all admin roles</li>
+                            <li>Session duration limits of 12 hours for privileged accounts</li>
+                            <li>Geofencing requirements for sensitive data access</li>
+                            <li>Enhanced audit logging configuration requirements</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            <!-- </div> -->
         </div>
+        
 
         <!-- Technical Insights Section -->
         <div class="section">
@@ -761,19 +984,6 @@
                 <div class="tip-content">Optimize your Cloud Storage costs with these best practices. Implementing
                     lifecycle policies can automatically transition objects to lower-cost storage classes or delete them
                     when they're no longer needed.</div>
-                <div class="code-block">
-                    # Example command<br>
-                    gsutil lifecycle set lifecycle-config.json gs://my-bucket<br><br>
-                    # Example lifecycle-config.json<br>
-                    {<br>
-                    "rule": [<br>
-                    {<br>
-                    "action": {"type": "SetStorageClass", "storageClass": "NEARLINE"},<br>
-                    "condition": {"age": 30}<br>
-                    }<br>
-                    ]<br>
-                    }
-                </div>
             </div>
         </div>
 
@@ -788,6 +998,13 @@
                         innovative solutions using Google Cloud Platform. March 25-27, 2024. Virtual participation
                         available.</div>
                     <button class="event-button">Register Now</button>
+                </div>
+                <div class="event-card">
+                    <div class="event-icon training-icon">🎓</div>
+                    <div class="event-title">Training Sessions</div>
+                    <div class="event-description">Weekly cloud architecture workshops and hands-on labs covering
+                        Kubernetes, CI/CD pipelines, and serverless architectures. Every Thursday at 2 PM EST.</div>
+                    <button class="event-button training-button">View Schedule</button>
                 </div>
                 <div class="event-card">
                     <div class="event-icon training-icon">🎓</div>
@@ -868,24 +1085,20 @@
                                     completing the database migration two weeks ahead of schedule.</div>
                             </div>
                         </li>
-                        <li class="shoutout-item">
-                            <span class="shoutout-icon">👏</span>
-                            <div>
-                                <div class="shoutout-team">Security Champions</div>
-                                <div class="shoutout-contribution">Successful implementation of automated security
-                                    scanning in our CI/CD pipeline, enhancing our security posture.</div>
-                            </div>
-                        </li>
                     </ul>
                 </div>
-                <div class="community-card ideas-card">
-                    <div class="ideas-title">Submit Your Ideas</div>
-                    <div class="ideas-description">Have an innovative idea for improving our cloud infrastructure? We
-                        want to hear from you!
-
-                        Your insights could help us enhance performance, security, and scalability. Whether it's
-                        automation, optimization, or a fresh new approach, we value your input. </div>
-                    <button class="ideas-button">Share Your Ideas</button>
+                <div class="community-card">
+                    <div class="card-title">Submit Your Ideas</div>
+                    <ul class="shoutouts-list">
+                    <li class="shoutout-item">
+                        <span class="shoutout-icon">👏</span>
+                        <div>
+                            <div class="shoutout-team">Security Champions</div>
+                            <div class="shoutout-contribution">Successful implementation of automated security
+                                scanning in our CI/CD pipeline, enhancing our security posture.</div>
+                        </div>
+                    </li>
+                </ul>
                 </div>
             </div>
         </div>
@@ -917,8 +1130,11 @@
         <div class="footer">
             <div class="feedback-section">
                 <div class="feedback-title">Feedback & Suggestions</div>
-                <div class="feedback-description">Help us improve by sharing your thoughts on this newsletter</div>
-                <button class="feedback-button">Provide Feedback</button>
+                <div class="feedback-description">Your insights matter to us! Share your thoughts on our newsletter content, design, and delivery frequency. 
+                    We're constantly working to improve your experience and provide content that matters most to you. 
+                    Have ideas for future topics? Let us know what you'd like to see in upcoming editions.
+        </div>
+                <a href="https://www.bluealtair.com/contact-us"><button class="feedback-button">Provide Feedback</button></a>
             </div>
             <div class="social-section">
                 <div class="social-title">Stay Connected</div>
@@ -939,14 +1155,76 @@
 
 
     <script>
-        function toggleDetails(element) {
-            const details = element.nextElementSibling;
-            details.style.display = "block";
+        function toggleDetails(button) {
+        const container = button.closest('.expandable');
+        const wasExpanded = container.classList.contains('expanded');
+        
+        // Close all expandable elements
+        document.querySelectorAll('.expandable').forEach(el => {
+            el.classList.remove('expanded');
+        });
+        
+        // Open clicked element if it wasn't already expanded
+        if (!wasExpanded) {
+            container.classList.add('expanded');
         }
-        function closeDetails(element) {
-            element.parentElement.style.display = "none";
+    }
+
+        function toggleSecurityDetails(button) {
+        const view = document.getElementById('view');
+        const close = document.getElementById('close');
+
+        if (close.style.display === "none") {
+            close.style.display = "block"; // Show the button
+        } else {
+            close.style.display = "none"; // Hide the button
         }
+        
+        if (view.style.display === "none") {
+            view.style.display = "block"; // Show the button
+        } else {
+            view.style.display = "none"; // Hide the button
+        }
+
+        // Close all expandable elements
+        const container = button.closest('.expandable');
+        const wasExpanded = container.classList.contains('expanded');
+        
+        // Close all expandable elements
+        document.querySelectorAll('.expandable').forEach(el => {
+            el.classList.remove('expanded');
+        });
+        
+        // Open clicked element if it wasn't already expanded
+        if (!wasExpanded) {
+            container.classList.add('expanded');
+        }
+    }
+
+    // Existing close function works as-is
+    function closeDetails() {
+        document.querySelectorAll('.expandable').forEach(el => {
+            el.classList.remove('expanded');
+        });
+    }
+
+    function closeSecurityDetails(button) {
+        const close = document.getElementById('close');
+        const view = document.getElementById('view');
+        if (view.style.display === "none") {
+            view.style.display = "block"; // Show the view
+        } else {
+            view.style.display = "none"; // Hide the view
+        }
+        if (close.style.display === "none") {
+            close.style.display = "block"; // Show the close
+        } else {
+            close.style.display = "none"; // Hide the close
+        }
+        document.querySelectorAll('.expandable').forEach(el => {
+            el.classList.remove('expanded');
+        });
+    }
     </script>
 </body>
-
 </html>
